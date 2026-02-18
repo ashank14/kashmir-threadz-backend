@@ -244,7 +244,7 @@ exports.paytmCallback = async (req, res) => {
     // 4️⃣ Redirect to frontend
     const publicOrder = updatedOrder?.public_order_id ?? ORDERID;
 
-    const successUrl = `${process.env.FRONTEND_URL}/payment-success?order=${publicOrder}`;
+    const successUrl = `${process.env.FRONTEND_URL}/orders`;
     const failedUrl = `${process.env.FRONTEND_URL}/payment-failed?order=${publicOrder}`;
 
     return res.redirect(
