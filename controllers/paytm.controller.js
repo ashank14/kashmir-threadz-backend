@@ -129,7 +129,7 @@ exports.createPaytmOrder = async (req, res) => {
     const body = {
       requestType: "Payment",
       mid: process.env.PAYTM_MID,
-      websiteName: "WEBSTAGING",
+      websiteName: "DEFAULT",
       orderId: paytmOrderId,
       callbackUrl: process.env.PAYTM_CALLBACK_URL,
       txnAmount: {
@@ -147,7 +147,7 @@ exports.createPaytmOrder = async (req, res) => {
     );
 
     const paytmRes = await axios.post(
-      `https://securestage.paytmpayments.com:443/theia/api/v1/initiateTransaction?mid=${process.env.PAYTM_MID}&orderId=${paytmOrderId}`,
+      `https://secure.paytmpayments.com:443/theia/api/v1/initiateTransaction?mid=${process.env.PAYTM_MID}&orderId=${paytmOrderId}`,
       {
         head: { signature },
         body,
